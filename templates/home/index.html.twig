@@ -6,14 +6,21 @@
     <div class="container">
 
         {% for player in players %}
-            <p>{{ player.prenom }} {{ player.nom }}</p>
+            <p>
+                {{ player.prenom }} {{ player.nom }}
+            <a href="{{ path('delete_player' , {'id':player.id}) }}">supprimer</a>
+            </p>
+
         {% endfor %}
 
         <a href="{{ path('player') }}">Ajouter un joueur</a>
 
-        <form method="post" action="{{ path('resultat') }}">
-            <input name="team" type="number" value="1">
-            <button type="submit">Répartir</button>
+        <form method="post" action="{{ path('resultat') }}" class="form-inline mt-3">
+            <div class="form-group mx-sm-3 mb-2">
+                <input class="form-control" name="team" type="number" value="1">
+            </div>
+            <button class="btn btn-primary mt-3" type="submit">Répartir</button>
         </form>
+
     </div>
 {% endblock %}
