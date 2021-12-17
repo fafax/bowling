@@ -5,22 +5,21 @@
 {% block body %}
     <div class="container">
 
+        <h1> Répartition équipe de bowling</h1>
+
         {% for player in players %}
             <p>
                 {{ player.prenom }} {{ player.nom }}
-            <a href="{{ path('delete_player' , {'id':player.id}) }}">supprimer</a>
+                <a href="{{ path('delete_player' , {'id':player.id}) }}">supprimer</a>
             </p>
 
         {% endfor %}
 
         <a href="{{ path('player') }}">Ajouter un joueur</a>
-
-        <form method="post" action="{{ path('resultat') }}" class="form-inline mt-3">
-            <div class="form-group mx-sm-3 mb-2">
-                <input class="form-control" name="team" type="number" value="1">
-            </div>
-            <button class="btn btn-primary mt-3" type="submit">Répartir</button>
-        </form>
-
+        <div class="mt-5">
+            <form method="post" action="{{ path('resultat') }}" class="form-inline mt-3">
+                <button class="btn btn-primary mt-3" type="submit">Répartir</button>
+            </form>
+        </div>
     </div>
 {% endblock %}

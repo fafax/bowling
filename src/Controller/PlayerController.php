@@ -32,7 +32,7 @@ class PlayerController extends AbstractController
             return $this->redirectToRoute('home');
         }
 
-        return $this->renderForm('student/index.html.twig', [
+        return $this->renderForm('player/index.html.twig', [
             'form' => $form,
         ]);
     }
